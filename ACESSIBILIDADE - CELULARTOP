@@ -1,0 +1,244 @@
+/* ==========================================
+   ♿ ACESSIBILIDADE — CELULARTOP
+   ========================================== */
+
+/* ------------------------------------------
+   CONTRASTE E LEGIBILIDADE
+   ------------------------------------------ */
+
+body {
+  background: #080b12;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+p {
+  line-height: 1.7;
+}
+
+a {
+  color: #8db7ff;
+}
+
+
+/* ------------------------------------------
+   FOCO DO TECLADO
+   ------------------------------------------ */
+
+:focus {
+  outline: 3px solid #ffd54a;
+  outline-offset: 3px;
+}
+
+
+/* Evita remover o foco quando
+   a pessoa navega pelo teclado */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #ffd54a;
+  outline-offset: 3px;
+}
+
+
+/* ------------------------------------------
+   BOTÕES
+   ------------------------------------------ */
+
+button,
+.botao,
+.botao-detalhes,
+.voltar {
+  min-height: 44px;
+  cursor: pointer;
+}
+
+
+/* ------------------------------------------
+   CAMPOS DE FORMULÁRIO
+   ------------------------------------------ */
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+
+/* ------------------------------------------
+   NÃO DEPENDER SOMENTE DE COR
+   ------------------------------------------ */
+
+/*
+   Além da cor, usamos símbolos e texto
+   para indicar informações.
+*/
+
+.nota {
+  font-weight: bold;
+}
+
+.nota::before {
+  content: "⭐ Nota: ";
+}
+
+
+/* ------------------------------------------
+   RANKING
+   ------------------------------------------ */
+
+.ranking {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+
+/* ------------------------------------------
+   LINKS
+   ------------------------------------------ */
+
+nav a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+
+/* ------------------------------------------
+   TEXTO VISUALMENTE ESCONDIDO
+   MAS DISPONÍVEL PARA LEITORES DE TELA
+   ------------------------------------------ */
+
+.sr-only {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+
+  border: 0;
+}
+
+
+/* ------------------------------------------
+   REDUZIR ANIMAÇÕES
+   PARA QUEM PREFERE MENOS MOVIMENTO
+   ------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+}
+
+
+/* ------------------------------------------
+   AUMENTAR ESPAÇAMENTO EM TELAS PEQUENAS
+   ------------------------------------------ */
+
+@media (max-width: 600px) {
+
+  body {
+    font-size: 17px;
+  }
+
+  button,
+  .botao,
+  .botao-detalhes,
+  .voltar {
+    min-height: 48px;
+  }
+
+}<a href="#conteudo-principal" class="sr-only">
+  Pular para o conteúdo principal
+</a><label for="pesquisaProduto">
+  Pesquisar produtos
+</label>
+
+<input
+  id="pesquisaProduto"
+  type="search"
+  placeholder="Digite o nome do celular ou PC"
+  autocomplete="off"
+><label
+  for="pesquisaProduto"
+  class="sr-only"
+>
+  Pesquisar produtos
+</label>
+
+<input
+  id="pesquisaProduto"
+  type="search"
+  placeholder="Pesquisar produtos"
+><label for="filtroMarca">
+  Filtrar por marca
+</label>
+
+<select id="filtroMarca">
+  <option value="todas">
+    Todas as marcas
+  </option>
+</select>
+
+
+<label for="ordenacao">
+  Ordenar produtos
+</label>
+
+<select id="ordenacao">
+  <option value="maior-nota">
+    Melhor ranking
+  </option>
+
+  <option value="menor-preco">
+    Menor preço
+  </option>
+
+  <option value="maior-preco">
+    Maior preço
+  </option>
+
+  <option value="maior-desempenho">
+    Maior desempenho
+  </option>
+</select><div
+  id="statusPesquisa"
+  class="sr-only"
+  aria-live="polite"
+  aria-atomic="true"
+></div>function anunciarResultados(lista) {
+
+  const status =
+    document.getElementById(
+      "statusPesquisa"
+    );
+
+  if (!status) return;
+
+  const quantidade = lista.length;
+
+  status.textContent =
+    `${quantidade} ${
+      quantidade === 1
+        ? "produto encontrado"
+        : "produtos encontrados"
+    }.`;
+}anunciarResultados(lista);
