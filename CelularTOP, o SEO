@@ -1,0 +1,208 @@
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <!-- SEO principal -->
+  <title>CelularTOP — Ranking e comparação de celulares e PCs</title>
+
+  <meta
+    name="description"
+    content="Compare celulares e PCs por preço, desempenho, câmera, bateria e custo-benefício no CelularTOP."
+  >
+
+  <meta
+    name="keywords"
+    content="celulares, smartphones, ranking de celulares, comparação de celulares, preço de celular, PCs, computadores, custo-benefício"
+  >
+
+  <meta name="author" content="CelularTOP">
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <meta
+    name="googlebot"
+    content="index, follow"
+  >
+
+  <!-- Idioma e localização -->
+  <meta
+    http-equiv="content-language"
+    content="pt-BR"
+  >
+
+  <!-- URL principal -->
+  <link
+    rel="canonical"
+    href="https://SEU-USUARIO.github.io/CelularTOP/"
+  >
+
+
+  <!-- Open Graph -->
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="CelularTOP — Compare celulares e PCs"
+  >
+
+  <meta
+    property="og:description"
+    content="Encontre os melhores celulares e PCs comparando preço, desempenho e custo-benefício."
+  >
+
+  <meta
+    property="og:url"
+    content="https://SEU-USUARIO.github.io/CelularTOP/"
+  >
+
+  <meta
+    property="og:site_name"
+    content="CelularTOP"
+  >
+
+  <meta
+    property="og:locale"
+    content="pt_BR"
+  >
+
+  <meta
+    property="og:image"
+    content="https://SEU-USUARIO.github.io/CelularTOP/imagens/og-image.jpg"
+  >
+
+
+  <!-- Twitter / X -->
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <meta
+    name="twitter:title"
+    content="CelularTOP — Compare celulares e PCs"
+  >
+
+  <meta
+    name="twitter:description"
+    content="Compare preço, desempenho, câmera, bateria e custo-benefício."
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://SEU-USUARIO.github.io/CelularTOP/imagens/og-image.jpg"
+  >
+
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="favicon.svg"
+  >
+
+
+  <!-- CSS -->
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+</head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Ranking de celulares CelularTOP",
+  "description": "Ranking de celulares por desempenho, câmera, bateria e custo-benefício.",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Product",
+        "name": "Galaxy A15",
+        "brand": {
+          "@type": "Brand",
+          "name": "Samsung"
+        },
+        "category": "Smartphone"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Product",
+        "name": "Redmi Note 13",
+        "brand": {
+          "@type": "Brand",
+          "name": "Xiaomi"
+        },
+        "category": "Smartphone"
+      }
+    }
+  ]
+}
+</script>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+>
+
+  <url>
+    <loc>
+      https://SEU-USUARIO.github.io/CelularTOP/
+    </loc>
+
+    <changefreq>daily</changefreq>
+
+    <priority>1.0</priority>
+  </url>
+
+</urlset>
+/celulares/
+/pcs/
+/celulares/samsung/
+/celulares/xiaomi/
+/pcs/gamer/
+robots.txt
+User-agent: *
+Allow: /
+Sitemap: https://SEU-USUARIO.github.io/CelularTOP/sitemap.xml
+favicon.svg
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 100 100"
+>
+
+  <rect
+    width="100"
+    height="100"
+    rx="22"
+    fill="#4f8cff"
+  />
+
+  <text
+    x="50"
+    y="67"
+    text-anchor="middle"
+    font-size="55"
+    font-family="Arial"
+    font-weight="bold"
+    fill="white"
+  >
+    C
+  </text>
+
+</svg>
