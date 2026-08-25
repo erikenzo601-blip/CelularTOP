@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <!-- ==========================================
+       SEO
+       ========================================== -->
+
+  <title>
+    CelularTOP — Ranking e comparação de celulares e PCs
+  </title>
+
+  <meta
+    name="description"
+    content="Compare celulares e PCs por preço, desempenho, câmera, bateria e custo-benefício."
+  >
+
+  <meta
+    name="keywords"
+    content="celulares, smartphones, ranking de celulares, comparação de celulares, PCs, computadores, preço de celular"
+  >
+
+  <meta
+    name="author"
+    content="CelularTOP"
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <meta
+    name="googlebot"
+    content="index, follow"
+  >
+
+  <meta
+    http-equiv="content-language"
+    content="pt-BR"
+  >
+
+  <!--
+    TROQUE SEU-USUARIO pelo seu usuário do GitHub
+  -->
+
+  <link
+    rel="canonical"
+    href="https://SEU-USUARIO.github.io/CelularTOP/"
+  >
+
+  <!-- Open Graph -->
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="CelularTOP — Compare celulares e PCs"
+  >
+
+  <meta
+    property="og:description"
+    content="Compare preço, desempenho, câmera, bateria e custo-benefício."
+  >
+
+  <meta
+    property="og:site_name"
+    content="CelularTOP"
+  >
+
+  <meta
+    property="og:locale"
+    content="pt_BR"
+  >
+
+
+  <!-- Favicon -->
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,
+    <svg xmlns='http://www.w3.org/2000/svg'
+    viewBox='0 0 100 100'>
+    <rect width='100' height='100' rx='20' fill='%234f8cff'/>
+    <text x='50' y='67'
+    text-anchor='middle'
+    font-size='55'
+    font-family='Arial'
+    font-weight='bold'
+    fill='white'>C</text>
+    </svg>"
+  >
+
+
+  <!-- ==========================================
+       CSS
+       ========================================== -->
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      background: #080b12;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+
+    /* ==========================================
+       ACESSIBILIDADE
+       ========================================== */
+
+    .sr-only {
+      position: absolute;
+
+      width: 1px;
+      height: 1px;
+
+      padding: 0;
+      margin: -1px;
+
+      overflow: hidden;
+
+      clip: rect(0, 0, 0, 0);
+
+      white-space: nowrap;
+
+      border: 0;
+    }
+
+
+    :focus-visible {
+      outline: 3px solid #ffd54a;
+      outline-offset: 3px;
+    }
+
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+
+    button {
+      cursor: pointer;
+    }
+
+
+    /* ==========================================
+       HEADER
+       ========================================== */
+
+    header {
+      width: 100%;
+      min-height: 70px;
+
+      padding: 16px 6%;
+
+      background: #101522;
+
+      border-bottom: 1px solid #202838;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+
+    .logo span {
+      color: #4f8cff;
+    }
+
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+
+    nav a {
+      color: #dbe5ff;
+
+      text-decoration: underline;
+
+      text-underline-offset: 4px;
+    }
+
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+
+    /* ==========================================
+       HERO
+       ========================================== */
+
+    .hero {
+      text-align: center;
+
+      padding:
+        70px 20px
+        40px;
+    }
+
+
+    .hero h1 {
+      font-size: 44px;
+
+      line-height: 1.2;
+
+      margin-bottom: 15px;
+    }
+
+
+    .hero h1 span {
+      color: #4f8cff;
+    }
+
+
+    .hero p {
+      max-width: 700px;
+
+      margin: auto;
+
+      color: #c2c9d6;
+
+      font-size: 18px;
+    }
+
+
+    /* ==========================================
+       CATEGORIAS
+       ========================================== */
+
+    .categorias {
+      max-width: 1000px;
+
+      margin:
+        20px auto
+        70px;
+
+      padding: 20px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 25px;
+    }
+
+
+    .categoria {
+      background: #111827;
+
+      border: 1px solid #2b3649;
+
+      border-radius: 20px;
+
+      padding: 40px 25px;
+
+      text-align: center;
+
+      cursor: pointer;
+
+      transition: transform 0.2s,
+                  border-color 0.2s;
+    }
+
+
+    .categoria:hover {
+      transform: translateY(-5px);
+
+      border-color: #4f8cff;
+    }
+
+
+    .categoria .icone {
+      font-size: 60px;
+
+      margin-bottom: 15px;
+    }
+
+
+    .categoria h2 {
+      font-size: 27px;
+
+      margin-bottom: 10px;
+    }
+
+
+    .categoria p {
+      color: #c2c9d6;
+
+      margin-bottom: 25px;
+    }
+
+
+    .botao {
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 46px;
+
+      padding:
+        10px 24px;
+
+      border-radius: 10px;
+
+      background: #4f8cff;
+
+      color: #ffffff;
+
+      font-weight: bold;
+    }
+
+
+    /* ==========================================
+       CONTEÚDO
+       ========================================== */
+
+    .conteudo {
+      display: none;
+
+      padding:
+        35px 6%
+        70px;
+    }
+
+
+    .conteudo.ativo {
+      display: block;
+    }
+
+
+    .titulo-secao {
+      text-align: center;
+
+      margin-bottom: 25px;
+    }
+
+
+    .titulo-secao h2 {
+      font-size: 32px;
+
+      margin-bottom: 8px;
+    }
+
+
+    .titulo-secao p {
+      color: #c2c9d6;
+    }
+
+
+    /* ==========================================
+       FILTROS
+       ========================================== */
+
+    .filtros {
+      width: 100%;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(180px, 1fr)
+        );
+
+      gap: 12px;
+
+      margin:
+        20px 0
+        30px;
+    }
+
+
+    .filtros input,
+    .filtros select,
+    .filtros button {
+
+      width: 100%;
+
+      min-height: 48px;
+
+      padding:
+        10px 14px;
+
+      border-radius: 10px;
+
+      border: 1px solid #344158;
+
+      background: #111827;
+
+      color: #ffffff;
+
+      outline: none;
+    }
+
+
+    .filtros input::placeholder {
+      color: #aeb7c7;
+    }
+
+
+    .filtros button {
+      background: #273244;
+
+      font-weight: bold;
+    }
+
+
+    .filtros button:hover {
+      background: #344158;
+    }
+
+
+    /* ==========================================
+       PRODUTOS
+       ========================================== */
+
+    .produtos {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(240px, 1fr)
+        );
+
+      gap: 20px;
+    }
+
+
+    .produto {
+      background: #111827;
+
+      border: 1px solid #273244;
+
+      border-radius: 16px;
+
+      padding: 20px;
+
+      transition:
+        transform 0.2s,
+        border-color 0.2s;
+    }
+
+
+    .produto:hover {
+      transform: translateY(-4px);
+
+      border-color: #4f8cff;
+    }
+
+
+    .produto-imagem {
+      width: 100%;
+
+      height: 170px;
+
+      border-radius: 12px;
+
+      background: #1a2231;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 60px;
+
+      margin-bottom: 15px;
+    }
+
+
+    .ranking {
+      font-weight: bold;
+
+      margin-bottom: 8px;
+
+      color: #ffd54a;
+    }
+
+
+    .produto h3 {
+      font-size: 20px;
+
+      margin-bottom: 7px;
+    }
+
+
+    .produto p {
+      color: #c2c9d6;
+
+      line-height: 1.7;
+    }
+
+
+    .preco {
+      color: #ffffff;
+
+      font-size: 23px;
+
+      font-weight: bold;
+
+      margin:
+        12px 0;
+    }
+
+
+    .nota {
+      color: #ffffff;
+
+      font-size: 20px;
+
+      font-weight: bold;
+
+      margin-bottom: 8px;
+    }
+
+
+    .nota::before {
+      content: "⭐ Nota: ";
+    }
+
+
+    .botao-detalhes {
+      width: 100%;
+
+      min-height: 46px;
+
+      margin-top: 15px;
+
+      border: 0;
+
+      border-radius: 9px;
+
+      background: #4f8cff;
+
+      color: #ffffff;
+
+      font-weight: bold;
+    }
+
+
+    .botao-detalhes:hover {
+      background: #3978e8;
+    }
+
+
+    /* ==========================================
+       ATUALIZAÇÃO
+       ========================================== */
+
+    .ultima-atualizacao {
+      text-align: center;
+
+      color: #aeb7c7;
+
+      margin:
+        10px 0
+        25px;
+
+      font-size: 14px;
+    }
+
+
+    /* ==========================================
+       VOLTAR
+       ========================================== */
+
+    .voltar {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      width: fit-content;
+
+      min-height: 46px;
+
+      margin:
+        35px auto
+        0;
+
+      padding:
+        10px 25px;
+
+      border: 0;
+
+      border-radius: 10px;
+
+      background: #273244;
+
+      color: #ffffff;
+
+      cursor: pointer;
+
+      font-weight: bold;
+    }
+
+
+    /* ==========================================
+       FOOTER
+       ========================================== */
+
+    footer {
+      padding: 30px 15px;
+
+      text-align: center;
+
+      background: #101522;
+
+      color: #aeb7c7;
+
+      font-size: 14px;
+    }
+
+
+    /* ==========================================
+       TABLET
+       ========================================== */
+
+    @media
+    (min-width: 601px)
+    and
+    (max-width: 900px) {
+
+      .produtos {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+
+      .categorias {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+    }
+
+
+    /* ==========================================
+       PC
+       ========================================== */
+
+    @media
+    (min-width: 901px)
+    and
+    (max-width: 1400px) {
+
+      .produtos {
+        grid-template-columns:
+          repeat(3, 1fr);
+      }
+
+    }
+
+
+    /* ==========================================
+       TELAS GRANDES
+       ========================================== */
+
+    @media (min-width: 1401px) {
+
+      .produtos {
+        grid-template-columns:
+          repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+          );
+      }
+
+    }
+
+
+    /* ==========================================
+       CELULAR
+       ========================================== */
+
+    @media (max-width: 600px) {
+
+      body {
+        font-size: 17px;
+      }
+
+
+      header {
+        flex-direction: column;
+
+        justify-content: center;
+
+        text-align: center;
+
+        padding:
+          15px 20px;
+      }
+
+
+      nav {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 10px;
+      }
+
+
+      nav a {
+        font-size: 14px;
+      }
+
+
+      .hero {
+        padding:
+          45px 18px
+          30px;
+      }
+
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+
+      .hero p {
+        font-size: 16px;
+      }
+
+
+      .categorias {
+        grid-template-columns: 1fr;
+
+        padding: 15px;
+
+        gap: 15px;
+      }
+
+
+      .categoria {
+        padding:
+          30px 20px;
+      }
+
+
+      .conteudo {
+        padding:
+          25px 15px
+          50px;
+      }
+
+
+      .titulo-secao h2 {
+        font-size: 25px;
+      }
+
+
+      .produtos {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+      }
+
+
+      .filtros {
+        grid-template-columns: 1fr;
+      }
+
+
+      .filtros input,
+      .filtros select,
+      .filtros button {
+        min-height: 50px;
+
+        font-size: 16px;
+      }
+
+
+      .botao-detalhes,
+      .voltar {
+        min-height: 50px;
+      }
+
+    }
+
+
+    /* ==========================================
+       REDUZIR ANIMAÇÕES
+       ========================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+
+        animation-duration:
+          0.01ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        transition-duration:
+          0.01ms !important;
+
+        scroll-behavior:
+          auto !important;
+      }
+
+    }
+
+  </style>
+
+
+  <!-- ==========================================
+       DADOS ESTRUTURADOS
+       ========================================== -->
+
+  <script type="application/ld+json">
+
+  {
+    "@context": "https://schema.org",
+
+    "@type": "WebSite",
+
+    "name": "CelularTOP",
+
+    "description":
+      "Ranking e comparação de celulares e PCs.",
+
+    "inLanguage": "pt-BR"
+  }
+
+  </script>
+
+</head>
+
+
+<body>
+
+
+  <!-- ==========================================
+       ACESSIBILIDADE
+       ========================================== -->
+
+  <a
+    href="#conteudo-principal"
+    class="sr-only"
+  >
+    Pular para o conteúdo principal
+  </a>
+
+
+  <!-- ==========================================
+       HEADER
+       ========================================== -->
+
+  <header>
+
+    <div class="logo">
+      Celular<span>TOP</span>
+    </div>
+
+
+    <nav aria-label="Navegação principal">
+
+      <a
+        href="#"
+        onclick="mostrarInicio(); return false;"
+      >
+        Início
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- ==========================================
+       CONTEÚDO
+       ========================================== -->
+
+  <main id="conteudo-principal">
+
+
+    <!-- ========================================
+         INÍCIO
+         ======================================== -->
+
+    <section
+      id="inicio"
+      aria-labelledby="tituloPrincipal"
+    >
+
+      <div class="hero">
+
+        <h1 id="tituloPrincipal">
+          Encontre o seu
+          <span>TOP</span>
+        </h1>
+
+        <p>
+          Compare celulares e PCs por
+          preço, desempenho e
+          custo-benefício.
+        </p>
+
+      </div>
+
+
+      <div class="categorias">
+
+
+        <!-- CELULARES -->
+
+        <button
+          type="button"
+          class="categoria"
+          onclick="trocarCategoria('celular')"
+          aria-label="Abrir ranking de celulares"
+        >
+
+          <div
+            class="icone"
+            aria-hidden="true"
+          >
+            📱
+          </div>
+
+          <h2>
+            Celulares
+          </h2>
+
+          <p>
+            Rankings, preços,
+            desempenho, câmera
+            e bateria.
+          </p>
+
+          <span class="botao">
+            Ver celulares
+          </span>
+
+        </button>
+
+
+        <!-- PCS -->
+
+        <button
+          type="button"
+          class="categoria"
+          onclick="trocarCategoria('pc')"
+          aria-label="Abrir ranking de computadores"
+        >
+
+          <div
+            class="icone"
+            aria-hidden="true"
+          >
+            💻
+          </div>
+
+          <h2>
+            PCs
+          </h2>
+
+          <p>
+            Computadores,
+            desempenho,
+            componentes e preços.
+          </p>
+
+          <span class="botao">
+            Ver PCs
+          </span>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================================
+         CELULARES
+         ======================================== -->
+
+    <section
+      id="celulares"
+      class="conteudo"
+      aria-labelledby="tituloCelulares"
+    >
+
+      <div class="titulo-secao">
+
+        <h2 id="tituloCelulares">
+          📱 Ranking de Celulares
+        </h2>
+
+        <p>
+          Compare celulares por preço,
+          marca e desempenho.
+        </p>
+
+      </div>
+
+
+      <div
+        id="ultimaAtualizacao"
+        class="ultima-atualizacao"
+        aria-live="polite"
+      >
+        Carregando preços...
+      </div>
+
+
+      <div
+        id="filtrosCelulares"
+        class="filtros"
+      >
+
+        <label
+          for="pesquisaProduto"
+          class="sr-only"
+        >
+          Pesquisar celulares
+        </label>
+
+        <input
+          id="pesquisaProduto"
+          type="search"
+          placeholder="🔎 Pesquisar celular..."
+          autocomplete="off"
+        >
+
+
+        <label
+          for="filtroMarca"
+          class="sr-only"
+        >
+          Filtrar por marca
+        </label>
+
+        <select id="filtroMarca">
+
+          <option value="todas">
+            Todas as marcas
+          </option>
+
+        </select>
+
+
+        <label
+          for="precoMin"
+          class="sr-only"
+        >
+          Preço mínimo
+        </label>
+
+        <input
+          id="precoMin"
+          type="number"
+          min="0"
+          placeholder="Preço mínimo"
+        >
+
+
+        <label
+          for="precoMax"
+          class="sr-only"
+        >
+          Preço máximo
+        </label>
+
+        <input
+          id="precoMax"
+          type="number"
+          min="0"
+          placeholder="Preço máximo"
+        >
+
+
+        <label
+          for="desempenhoMin"
+          class="sr-only"
+        >
+          Desempenho mínimo
+        </label>
+
+        <input
+          id="desempenhoMin"
+          type="number"
+          min="0"
+          max="100"
+          placeholder="Desempenho mínimo"
+        >
+
+
+        <label
+          for="ordenacao"
+          class="sr-only"
+        >
+          Ordenar produtos
+        </label>
+
+        <select id="ordenacao">
+
+          <option value="maior-nota">
+            🏆 Melhor ranking
+          </option>
+
+          <option value="menor-preco">
+            💰 Menor preço
+          </option>
+
+          <option value="maior-preco">
+            💰 Maior preço
+          </option>
+
+          <option value="maior-desempenho">
+            ⚡ Maior desempenho
+          </option>
+
+        </select>
+
+
+        <button
+          type="button"
+          id="limparFiltros"
+        >
+          Limpar filtros
+        </button>
+
+      </div>
+
+
+      <div
+        class="produtos"
+        id="listaCelulares"
+        aria-live="polite"
+      ></div>
+
+
+      <button
+        type="button"
+        class="voltar"
+        onclick="mostrarInicio()"
+      >
+        ← Voltar para início
+      </button>
+
+    </section>
+
+
+    <!-- ========================================
+         PCS
+         ======================================== -->
+
+    <section
+      id="pcs"
+      class="conteudo"
+      aria-labelledby="tituloPCs"
+    >
+
+      <div class="titulo-secao">
+
+        <h2 id="tituloPCs">
+          💻 Ranking de PCs
+        </h2>
+
+        <p>
+          Compare computadores por preço
+          e desempenho.
+        </p>
+
+      </div>
+
+
+      <div
+        id="filtrosPCs"
+        class="filtros"
+      ></div>
+
+
+      <div
+        class="produtos"
+        id="listaPCs"
+        aria-live="polite"
+      ></div>
+
+
+      <button
+        type="button"
+        class="voltar"
+        onclick="mostrarInicio()"
+      >
+        ← Voltar para início
+      </button>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+
+  <footer>
+
+    <p>
+      © 2026 CelularTOP.
+    </p>
+
+    <p>
+      Comparação de produtos por
+      preço e desempenho.
+    </p>
+
+  </footer>
+
+
+  <!-- ==========================================
+       JAVASCRIPT
+       ========================================== -->
+
+  <script>
+
+    /* ==========================================
+       PRODUTOS
+       ========================================== */
+
+    /*
+      Estes preços são exemplos.
+      Para preços realmente atualizados,
+      posteriormente podemos substituir
+      esta estrutura por uma API.
+    */
+
+    const produtos = [
+
+      /* CELULARES */
+
+      {
+        id: 1,
+        nome: "Galaxy A15",
+        categoria: "celular",
+        marca: "Samsung",
+        preco: 899,
+        desempenho: 72,
+        camera: 78,
+        bateria: 90
+      },
+
+      {
+        id: 2,
+        nome: "Galaxy A25",
+        categoria: "celular",
+        marca: "Samsung",
+        preco: 1299,
+        desempenho: 82,
+        camera: 82,
+        bateria: 88
+      },
+
+      {
+        id: 3,
+        nome: "Redmi Note 13",
+        categoria: "celular",
+        marca: "Xiaomi",
+        preco: 1099,
+        desempenho: 84,
+        camera: 80,
+        bateria: 87
+      },
+
+      {
+        id: 4,
+        nome: "Moto G54",
+        categoria: "celular",
+        marca: "Motorola",
+        preco: 999,
+        desempenho: 86,
+        camera: 76,
+        bateria: 91
+      },
+
+      {
+        id: 5,
+        nome: "Redmi Note 13 Pro",
+        categoria: "celular",
+        marca: "Xiaomi",
+        preco: 1699,
+        desempenho: 91,
+        camera: 92,
+        bateria: 88
+      },
+
+
+      /* PCS */
+
+      {
+        id: 101,
+        nome: "PC Gamer Básico",
+        categoria: "pc",
+        marca: "Intel",
+        preco: 1479,
+        desempenho: 70
+      },
+
+      {
+        id: 102,
+        nome: "PC Gamer Ryzen 5",
+        categoria: "pc",
+        marca: "AMD",
+        preco: 2299,
+        desempenho: 86
+      },
+
+      {
+        id: 103,
+        nome: "PC Gamer Intermediário",
+        categoria: "pc",
+        marca: "AMD",
+        preco: 2999,
+        desempenho: 92
+      }
+
+    ];
+
+
+    /* ==========================================
+       ESTADO
+       ========================================== */
+
+    let categoriaAtual =
+      "celular";
+
+    let produtosFiltrados =
+      [];
+
+
+    /* ==========================================
+       PREÇO
+       ========================================== */
+
+    function formatarPreco(preco) {
+
+      return new Intl.NumberFormat(
+        "pt-BR",
+        {
+          style: "currency",
+          currency: "BRL"
+        }
+      ).format(preco);
+
+    }
+
+
+    /* ==========================================
+       NOTA
+       ========================================== */
+
+    function calcularNota(produto) {
+
+      if (
+        produto.categoria ===
+        "celular"
+      ) {
+
+        return Math.round(
+          (
+            produto.desempenho +
+            produto.camera +
+            produto.bateria
+          ) / 3
+        );
+
+      }
+
+      return produto.desempenho;
+
+    }
+
+
+    /* ==========================================
+       PRODUTOS DA CATEGORIA
+       ========================================== */
+
+    function produtosDaCategoria() {
+
+      return produtos.filter(
+        produto =>
+          produto.categoria ===
+          categoriaAtual
+      );
+
+    }
+
+
+    /* ==========================================
+       MOSTRAR PRODUTOS
+       ========================================== */
+
+    function mostrarProdutos(lista) {
+
+      const container =
+        document.getElementById(
+          categoriaAtual === "celular"
+            ? "listaCelulares"
+            : "listaPCs"
+        );
+
+
+      if (!container) return;
+
+
+      container.innerHTML = "";
+
+
+      if (lista.length === 0) {
+
+        container.innerHTML = `
+          <div class="produto">
+
+            <h3>
+              Nenhum produto encontrado
+            </h3>
+
+            <p>
+              Tente alterar a pesquisa
+              ou os filtros.
+            </p>
+
+          </div>
+        `;
+
+        return;
+
+      }
+
+
+      lista.forEach(
+        (produto, index) => {
+
+          const card =
+            document.createElement(
+              "article"
+            );
+
+
+          card.className =
+            "produto";
+
+
+          const nota =
+            calcularNota(produto);
+
+
+          const icone =
+            produto.categoria ===
+            "celular"
+              ? "📱"
+              : "💻";
+
+
+          card.innerHTML = `
+
+            <div
+              class="produto-imagem"
+              aria-hidden="true"
+            >
+              ${icone}
+            </div>
+
+
+            <div class="ranking">
+              🏆 Ranking #${index + 1}
+            </div>
+
+
+            <h3>
+              ${produto.nome}
+            </h3>
+
+
+            <p>
+              Marca:
+              <strong>
+                ${produto.marca}
+              </strong>
+            </p>
+
+
+            <div class="preco">
+              ${formatarPreco(
+                produto.preco
+              )}
+            </div>
+
+
+            <div class="nota">
+              ${nota}/100
+            </div>
+
+
+            <p>
+              ⚡ Desempenho:
+              ${produto.desempenho}/100
+
+              ${
+                produto.categoria ===
+                "celular"
+                  ? `
+                    <br>
+                    📸 Câmera:
+                    ${produto.camera}/100
+
+                    <br>
+
+                    🔋 Bateria:
+                    ${produto.bateria}/100
+                  `
+                  : ""
+              }
+            </p>
+
+
+            <button
+              type="button"
+              class="botao-detalhes"
+              onclick="verDetalhes(${produto.id})"
+              aria-label="Ver detalhes de ${produto.nome}"
+            >
+              Ver detalhes
+            </button>
+
+          `;
+
+
+          container.appendChild(card);
+
+        }
+      );
+
+
+      anunciarResultados(lista);
+
+    }
+
+
+    /* ==========================================
+       ANÚNCIO PARA LEITOR DE TELA
+       ========================================== */
+
+    function anunciarResultados(lista) {
+
+      let status =
+        document.getElementById(
+          "statusAcessibilidade"
+        );
+
+
+      if (!status) {
+
+        status =
+          document.createElement(
+            "div"
+          );
+
+        status.id =
+          "statusAcessibilidade";
+
+        status.className =
+          "sr-only";
+
+        status.setAttribute(
+          "aria-live",
+          "polite"
+        );
+
+        document.body.appendChild(
+          status
+        );
+
+      }
+
+
+      status.textContent =
+        `${lista.length} ${
+          lista.length === 1
+            ? "produto encontrado"
+            : "produtos encontrados"
+        }.`;
+
+    }
+
+
+    /* ==========================================
+       FILTROS
+       ========================================== */
+
+    function aplicarFiltros() {
+
+      const pesquisa =
+        document.getElementById(
+          "pesquisaProduto"
+        )?.value
+        .toLowerCase()
+        .trim() || "";
+
+
+      const marca =
+        document.getElementById(
+          "filtroMarca"
+        )?.value ||
+        "todas";
+
+
+      const precoMin =
+        Number(
+          document.getElementById(
+            "precoMin"
+          )?.value
+        ) || 0;
+
+
+      const precoMaxValor =
+        document.getElementById(
+          "precoMax"
+        )?.value;
+
+
+      const precoMax =
+        precoMaxValor === ""
+          ? Infinity
+          : Number(
+              precoMaxValor
+            );
+
+
+      const desempenhoMin =
+        Number(
+          document.getElementById(
+            "desempenhoMin"
+          )?.value
+        ) || 0;
+
+
+      produtosFiltrados =
+        produtosDaCategoria()
+        .filter(produto => {
+
+          const nomeOK =
+            produto.nome
+              .toLowerCase()
+              .includes(
+                pesquisa
+              );
+
+
+          const marcaOK =
+            marca === "todas" ||
+            produto.marca === marca;
+
+
+          const precoOK =
+            produto.preco >=
+              precoMin &&
+            produto.preco <=
+              precoMax;
+
+
+          const desempenhoOK =
+            produto.desempenho >=
+            desempenhoMin;
+
+
+          return (
+            nomeOK &&
+            marcaOK &&
+            precoOK &&
+            desempenhoOK
+          );
+
+        });
+
+
+      ordenarProdutos(false);
+
+    }
+
+
+    /* ==========================================
+       ORDENAÇÃO
+       ========================================== */
+
+    function ordenarProdutos(
+      atualizar = true
+    ) {
+
+      const ordenacao =
+        document.getElementById(
+          "ordenacao"
+        )?.value ||
+        "maior-nota";
+
+
+      if (
+        ordenacao ===
+        "menor-preco"
+      ) {
+
+        produtosFiltrados.sort(
+          (a, b) =>
+            a.preco -
+            b.preco
+        );
+
+      }
+
+
+      else if (
+        ordenacao ===
+        "maior-preco"
+      ) {
+
+        produtosFiltrados.sort(
+          (a, b) =>
+            b.preco -
+            a.preco
+        );
+
+      }
+
+
+      else if (
+        ordenacao ===
+        "maior-desempenho"
+      ) {
+
+        produtosFiltrados.sort(
+          (a, b) =>
+            b.desempenho -
+            a.desempenho
+        );
+
+      }
+
+
+      else {
+
+        produtosFiltrados.sort(
+          (a, b) =>
+            calcularNota(b) -
+            calcularNota(a)
+        );
+
+      }
+
+
+      mostrarProdutos(
+        produtosFiltrados
+      );
+
+    }
+
+
+    /* ==========================================
+       CRIAR MARCAS
+       ========================================== */
+
+    function criarMarcas() {
+
+      const select =
+        document.getElementById(
+          "filtroMarca"
+        );
+
+
+      if (!select) return;
+
+
+      const marcas = [
+        ...new Set(
+          produtosDaCategoria()
+            .map(
+              produto =>
+                produto.marca
+            )
+        )
+      ];
+
+
+      select.innerHTML = `
+
+        <option value="todas">
+          Todas as marcas
+        </option>
+
+        ${marcas.map(
+          marca =>
+            `
+            <option
+              value="${marca}"
+            >
+              ${marca}
+            </option>
+            `
+        ).join("")}
+
+      `;
+
+    }
+
+
+    /* ==========================================
+       ATUALIZAÇÃO
+       ========================================== */
+
+    function mostrarAtualizacao() {
+
+      const elemento =
+        document.getElementById(
+          "ultimaAtualizacao"
+        );
+
+
+      if (!elemento) return;
+
+
+      const agora =
+        new Date();
+
+
+      elemento.textContent =
+        `Dados demonstrativos —
+        atualização:
+        ${agora.toLocaleDateString(
+          "pt-BR"
+        )}`;
+
+    }
+
+
+    /* ==========================================
+       TROCAR CATEGORIA
+       ========================================== */
+
+    function trocarCategoria(
+      categoria
+    ) {
+
+      categoriaAtual =
+        categoria;
+
+
+      document
+        .getElementById(
+          "inicio"
+        )
+        .style.display =
+        "none";
+
+
+      document
+        .getElementById(
+          "celulares"
+        )
+        .classList
+        .remove("ativo");
+
+
+      document
+        .getElementById(
+          "pcs"
+        )
+        .classList
+        .remove("ativo");
+
+
+      const secao =
+        document.getElementById(
+          categoria ===
+          "celular"
+            ? "celulares"
+            : "pcs"
+        );
+
+
+      secao
+        .classList
+        .add("ativo");
+
+
+      criarMarcas();
+
+
+      limparFiltros();
+
+
+      produtosFiltrados =
+        produtosDaCategoria();
+
+
+      mostrarProdutos(
+        produtosFiltrados
+      );
+
+
+      mostrarAtualizacao();
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    /* ==========================================
+       LIMPAR
+       ========================================== */
+
+    function limparFiltros() {
+
+      const ids = [
+
+        "pesquisaProduto",
+
+        "precoMin",
+
+        "precoMax",
+
+        "desempenhoMin"
+
+      ];
+
+
+      ids.forEach(id => {
+
+        const elemento =
+          document.getElementById(
+            id
+          );
+
+
+        if (elemento) {
+          elemento.value = "";
+        }
+
+      });
+
+
+      const marca =
+        document.getElementById(
+          "filtroMarca"
+        );
+
+
+      if (marca) {
+        marca.value =
+          "todas";
+      }
+
+
+      const ordenacao =
+        document.getElementById(
+          "ordenacao"
+        );
+
+
+      if (ordenacao) {
+        ordenacao.value =
+          "maior-nota";
+      }
+
+    }
+
+
+    /* ==========================================
+       INÍCIO
+       ========================================== */
+
+    function mostrarInicio() {
+
+      document
+        .getElementById(
+          "inicio"
+        )
+        .style.display =
+        "block";
+
+
+      document
+        .getElementById(
+          "celulares"
+        )
+        .classList
+        .remove("ativo");
+
+
+      document
+        .getElementById(
+          "pcs"
+        )
+        .classList
+        .remove("ativo");
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    /* ==========================================
+       DETALHES
+       ========================================== */
+
+    function verDetalhes(id) {
+
+      const produto =
+        produtos.find(
+          produto =>
+            produto.id === id
+        );
+
+
+      if (!produto) return;
+
+
+      const nota =
+        calcularNota(
+          produto
+        );
+
+
+      alert(
+        `${produto.nome}\n\n` +
+
+        `Marca: ${
+          produto.marca
+        }\n` +
+
+        `Preço: ${
+          formatarPreco(
+            produto.preco
+          )
+        }\n` +
+
+        `Desempenho: ${
+          produto.desempenho
+        }/100\n` +
+
+        `Nota: ${
+          nota
+        }/100`
+      );
+
+    }
+
+
+    /* ==========================================
+       EVENTOS
+       ========================================== */
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+        criarMarcas();
+
+        mostrarAtualizacao();
+
+        produtosFiltrados =
+          produtosDaCategoria();
+
+
+        document
+          .getElementById(
+            "pesquisaProduto"
+          )
+          .addEventListener(
+            "input",
+            aplicarFiltros
+          );
+
+
+        document
+          .getElementById(
+            "filtroMarca"
+          )
+          .addEventListener(
+            "change",
+            aplicarFiltros
+          );
+
+
+        document
+          .getElementById(
+            "precoMin"
+          )
+          .addEventListener(
+            "input",
+            aplicarFiltros
+          );
+
+
+        document
+          .getElementById(
+            "precoMax"
+          )
+          .addEventListener(
+            "input",
+            aplicarFiltros
+          );
+
+
+        document
+          .getElementById(
+            "desempenhoMin"
+          )
+          .addEventListener(
+            "input",
+            aplicarFiltros
+          );
+
+
+        document
+          .getElementById(
+            "ordenacao"
+          )
+          .addEventListener(
+            "change",
+            () =>
+              ordenarProdutos()
+          );
+
+
+        document
+          .getElementById(
+            "limparFiltros"
+          )
+          .addEventListener(
+            "click",
+            () => {
+
+              limparFiltros();
+
+              produtosFiltrados =
+                produtosDaCategoria();
+
+              mostrarProdutos(
+                produtosFiltrados
+              );
+
+            }
+          );
+
+      }
+    );
+
+  </script>
+
+
+</body>
+</html>
