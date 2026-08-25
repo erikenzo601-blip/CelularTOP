@@ -1,0 +1,819 @@
+// ==========================================
+// CELULARTOP - SISTEMA PRINCIPAL
+// ==========================================
+
+// Produtos do site
+// Os preços abaixo são apenas exemplos.
+// Depois podemos colocar preços reais.
+const produtos = [
+
+  // =========================
+  // CELULARES
+  // =========================
+
+  {
+    id: 1,
+    nome: "Galaxy A15",
+    categoria: "celular",
+    marca: "Samsung",
+    preco: 899,
+    desempenho: 72,
+    camera: 78,
+    bateria: 90
+  },
+
+  {
+    id: 2,
+    nome: "Galaxy A25",
+    categoria: "celular",
+    marca: "Samsung",
+    preco: 1299,
+    desempenho: 82,
+    camera: 82,
+    bateria: 88
+  },
+
+  {
+    id: 3,
+    nome: "Redmi Note 13",
+    categoria: "celular",
+    marca: "Xiaomi",
+    preco: 1099,
+    desempenho: 84,
+    camera: 80,
+    bateria: 87
+  },
+
+  {
+    id: 4,
+    nome: "Moto G54",
+    categoria: "celular",
+    marca: "Motorola",
+    preco: 999,
+    desempenho: 86,
+    camera: 76,
+    bateria: 91
+  },
+
+  {
+    id: 5,
+    nome: "Redmi Note 13 Pro",
+    categoria: "celular",
+    marca: "Xiaomi",
+    preco: 1699,
+    desempenho: 91,
+    camera: 92,
+    bateria: 88
+  },
+
+
+  // =========================
+  // PCS
+  // =========================
+
+  {
+    id: 101,
+    nome: "PC Gamer Básico",
+    categoria: "pc",
+    marca: "Intel",
+    preco: 1479,
+    desempenho: 70,
+    camera: 0,
+    bateria: 0
+  },
+
+  {
+    id: 102,
+    nome: "PC Gamer Ryzen 5",
+    categoria: "pc",
+    marca: "AMD",
+    preco: 2299,
+    desempenho: 86,
+    camera: 0,
+    bateria: 0
+  },
+
+  {
+    id: 103,
+    nome: "PC Gamer Intermediário",
+    categoria: "pc",
+    marca: "AMD",
+    preco: 2999,
+    desempenho: 92,
+    camera: 0,
+    bateria: 0
+  }
+
+];
+
+
+// ==========================================
+// ESTADO DO SITE
+// ==========================================
+
+let categoriaAtual = "celular";
+
+let produtosFiltrados = [];
+
+
+// ==========================================
+// CALCULAR NOTA
+// ==========================================
+
+function calcularNota(produto) {
+
+  if (produto.categoria === "celular") {
+
+    return Math.round(
+      (
+        produto.desempenho +
+        produto.camera +
+        produto.bateria
+      ) / 3
+    );
+
+  }
+
+  return produto.desempenho;
+}
+
+
+// ==========================================
+// FORMATAR PREÇO
+// ==========================================
+
+function formatarPreco(preco) {
+
+  return preco.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  });
+
+}
+
+
+// ==========================================
+// MOSTRAR PRODUTOS
+// ==========================================
+
+function mostrarProdutos(lista) {
+
+  const container =
+    document.querySelector(".produtos");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
+
+  if (lista.length === 0) {
+
+    container.innerHTML = `
+      <div class="produto">
+        <h3>Nenhum produto encontrado</h3>
+        <p>
+          Tente mudar sua pesquisa ou os filtros.
+        </p>
+      </div>
+    `;
+
+    return;
+  }
+
+
+  lista.forEach((produto, index) => {
+
+    const nota = calcularNota(produto);
+
+    const posicao = index + 1;
+
+
+    const card = document.createElement("div");
+
+    card.className = "produto";
+
+
+    card.innerHTML = `
+
+      <div class="produto-imagem">
+        ${produto.categoria === "celular" ? "📱" : "💻"}
+      </div>
+
+      <div class="ranking">
+        🏆 #${posicao}
+      </div>
+
+      <h3>
+        ${produto.nome}
+      </h3>
+
+      <p>
+        🏷️ ${produto.marca}
+      </p>
+
+      <div class="nota">
+        ${nota}/100
+      </div>
+
+      <p>
+        ⚡ Desempenho:
+        ${produto.desempenho}/100
+        <br>
+
+        ${
+          produto.categoria === "celular"
+          ? `
+            📸 Câmera:
+            ${produto.camera}/100
+            <br>
+
+            🔋 Bateria:
+            ${produto.bateria}/100
+            <br>
+          `
+          : ""
+        }
+
+        💰 ${formatarPreco(produto.preco)}
+      </p>
+
+      <button
+        class="botao-detalhes"
+        onclick="verDetalhes(${produto.id})"
+      >
+        Ver detalhes
+      </button>
+
+    `;
+
+
+    container.appendChild(card);
+
+  });
+
+}
+
+
+// ==========================================
+// PESQUISA
+// ==========================================
+
+function pesquisarProdutos() {
+
+  const campo =
+    document.getElementById("pesquisaProduto");
+
+  if (!campo) return;
+
+
+  const texto =
+    campo.value.toLowerCase().trim();
+
+
+  produtosFiltrados =
+    produtos.filter(produto => {
+
+      const pertenceCategoria =
+        produto.categoria === categoriaAtual;
+
+      const correspondePesquisa =
+        produto.nome
+          .toLowerCase()
+          .includes(texto);
+
+
+      return
+        pertenceCategoria &&
+        correspondePesquisa;
+
+    });
+
+
+  aplicarFiltros(false);
+
+}
+
+
+// ==========================================
+// FILTROS
+// ==========================================
+
+function aplicarFiltros(mostrar = true) {
+
+  let lista = [...produtosFiltrados];
+
+
+  // -------------------------
+  // PREÇO MÍNIMO
+  // -------------------------
+
+  const precoMin =
+    Number(
+      document.getElementById("precoMin")?.value
+    ) || 0;
+
+
+  // -------------------------
+  // PREÇO MÁXIMO
+  // -------------------------
+
+  const precoMax =
+    Number(
+      document.getElementById("precoMax")?.value
+    ) || Infinity;
+
+
+  // -------------------------
+  // MARCA
+  // -------------------------
+
+  const marca =
+    document.getElementById("filtroMarca")?.value
+    || "todas";
+
+
+  // -------------------------
+  // DESEMPENHO
+  // -------------------------
+
+  const desempenhoMin =
+    Number(
+      document.getElementById("desempenhoMin")?.value
+    ) || 0;
+
+
+  lista = lista.filter(produto => {
+
+    const precoOK =
+      produto.preco >= precoMin &&
+      produto.preco <= precoMax;
+
+
+    const marcaOK =
+      marca === "todas" ||
+      produto.marca === marca;
+
+
+    const desempenhoOK =
+      produto.desempenho >= desempenhoMin;
+
+
+    return (
+      precoOK &&
+      marcaOK &&
+      desempenhoOK
+    );
+
+  });
+
+
+  produtosFiltrados = lista;
+
+
+  if (mostrar) {
+    mostrarProdutos(lista);
+  }
+
+}
+
+
+// ==========================================
+// ORDENAÇÃO
+// ==========================================
+
+function ordenarProdutos() {
+
+  const tipo =
+    document.getElementById("ordenacao")?.value;
+
+
+  let lista =
+    [...produtosFiltrados];
+
+
+  if (tipo === "menor-preco") {
+
+    lista.sort(
+      (a, b) =>
+        a.preco - b.preco
+    );
+
+  }
+
+
+  if (tipo === "maior-preco") {
+
+    lista.sort(
+      (a, b) =>
+        b.preco - a.preco
+    );
+
+  }
+
+
+  if (tipo === "maior-desempenho") {
+
+    lista.sort(
+      (a, b) =>
+        b.desempenho -
+        a.desempenho
+    );
+
+  }
+
+
+  if (tipo === "maior-nota") {
+
+    lista.sort(
+      (a, b) =>
+        calcularNota(b) -
+        calcularNota(a)
+    );
+
+  }
+
+
+  produtosFiltrados = lista;
+
+  mostrarProdutos(lista);
+
+}
+
+
+// ==========================================
+// RANKING
+// ==========================================
+
+function gerarRanking() {
+
+  const lista =
+    produtos
+      .filter(
+        produto =>
+          produto.categoria ===
+          categoriaAtual
+      )
+      .sort(
+        (a, b) =>
+          calcularNota(b) -
+          calcularNota(a)
+      );
+
+
+  console.log(
+    "Ranking:",
+    lista
+  );
+
+}
+
+
+// ==========================================
+// TROCAR CATEGORIA
+// ==========================================
+
+function trocarCategoria(categoria) {
+
+  categoriaAtual = categoria;
+
+
+  produtosFiltrados =
+    produtos.filter(
+      produto =>
+        produto.categoria === categoria
+    );
+
+
+  limparFiltros();
+
+  criarFiltros();
+
+  mostrarProdutos(produtosFiltrados);
+
+  gerarRanking();
+
+}
+
+
+// ==========================================
+// LIMPAR FILTROS
+// ==========================================
+
+function limparFiltros() {
+
+  const pesquisa =
+    document.getElementById(
+      "pesquisaProduto"
+    );
+
+  if (pesquisa)
+    pesquisa.value = "";
+
+
+  const precoMin =
+    document.getElementById(
+      "precoMin"
+    );
+
+  if (precoMin)
+    precoMin.value = "";
+
+
+  const precoMax =
+    document.getElementById(
+      "precoMax"
+    );
+
+  if (precoMax)
+    precoMax.value = "";
+
+
+  const desempenho =
+    document.getElementById(
+      "desempenhoMin"
+    );
+
+  if (desempenho)
+    desempenho.value = "";
+
+
+  const marca =
+    document.getElementById(
+      "filtroMarca"
+    );
+
+  if (marca)
+    marca.value = "todas";
+
+}
+
+
+// ==========================================
+// CRIAR PAINEL DE FILTROS
+// ==========================================
+
+function criarFiltros() {
+
+  const secao =
+    document.querySelector(
+      categoriaAtual === "celular"
+      ? "#celulares"
+      : "#pcs"
+    );
+
+
+  if (!secao) return;
+
+
+  let filtros =
+    secao.querySelector(
+      ".filtros"
+    );
+
+
+  if (filtros)
+    filtros.remove();
+
+
+  filtros =
+    document.createElement("div");
+
+
+  filtros.className =
+    "filtros";
+
+
+  const marcas =
+    [
+      ...new Set(
+        produtos
+          .filter(
+            p =>
+              p.categoria ===
+              categoriaAtual
+          )
+          .map(
+            p => p.marca
+          )
+      )
+    ];
+
+
+  filtros.innerHTML = `
+
+    <input
+      id="pesquisaProduto"
+      type="text"
+      placeholder="🔎 Pesquisar produto..."
+    >
+
+
+    <select id="filtroMarca">
+
+      <option value="todas">
+        Todas as marcas
+      </option>
+
+      ${marcas.map(
+        marca =>
+          `
+          <option value="${marca}">
+            ${marca}
+          </option>
+          `
+      ).join("")}
+
+    </select>
+
+
+    <input
+      id="precoMin"
+      type="number"
+      placeholder="Preço mínimo"
+    >
+
+
+    <input
+      id="precoMax"
+      type="number"
+      placeholder="Preço máximo"
+    >
+
+
+    <input
+      id="desempenhoMin"
+      type="number"
+      min="0"
+      max="100"
+      placeholder="Desempenho mínimo"
+    >
+
+
+    <select id="ordenacao">
+
+      <option value="maior-nota">
+        🏆 Melhor ranking
+      </option>
+
+      <option value="menor-preco">
+        💰 Menor preço
+      </option>
+
+      <option value="maior-preco">
+        💰 Maior preço
+      </option>
+
+      <option value="maior-desempenho">
+        ⚡ Maior desempenho
+      </option>
+
+    </select>
+
+
+    <button id="limparFiltros">
+      Limpar filtros
+    </button>
+
+  `;
+
+
+  const titulo =
+    secao.querySelector(
+      ".titulo-secao"
+    );
+
+
+  titulo.after(filtros);
+
+
+  // Eventos
+
+  document
+    .getElementById("pesquisaProduto")
+    .addEventListener(
+      "input",
+      pesquisarProdutos
+    );
+
+
+  [
+    "filtroMarca",
+    "precoMin",
+    "precoMax",
+    "desempenhoMin"
+  ].forEach(id => {
+
+    document
+      .getElementById(id)
+      .addEventListener(
+        "input",
+        () => aplicarFiltros(true)
+      );
+
+    document
+      .getElementById(id)
+      .addEventListener(
+        "change",
+        () => aplicarFiltros(true)
+      );
+
+  });
+
+
+  document
+    .getElementById("ordenacao")
+    .addEventListener(
+      "change",
+      ordenarProdutos
+    );
+
+
+  document
+    .getElementById("limparFiltros")
+    .addEventListener(
+      "click",
+      () => {
+
+        limparFiltros();
+
+        produtosFiltrados =
+          produtos.filter(
+            p =>
+              p.categoria ===
+              categoriaAtual
+          );
+
+        mostrarProdutos(
+          produtosFiltrados
+        );
+
+      }
+    );
+
+}
+
+
+// ==========================================
+// DETALHES
+// ==========================================
+
+function verDetalhes(id) {
+
+  const produto =
+    produtos.find(
+      p => p.id === id
+    );
+
+
+  if (!produto) return;
+
+
+  const nota =
+    calcularNota(produto);
+
+
+  alert(
+    `${produto.nome}\n\n` +
+
+    `Marca: ${produto.marca}\n` +
+
+    `Preço: ${formatarPreco(
+      produto.preco
+    )}\n` +
+
+    `Desempenho: ${
+      produto.desempenho
+    }/100\n` +
+
+    `Nota: ${nota}/100`
+  );
+
+}
+
+
+// ==========================================
+// INICIALIZAÇÃO
+// ==========================================
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+
+    produtosFiltrados =
+      produtos.filter(
+        produto =>
+          produto.categoria ===
+          categoriaAtual
+      );
+
+
+    criarFiltros();
+
+    mostrarProdutos(
+      produtosFiltrados
+    );
+
+    gerarRanking();
+
+  }
+);
